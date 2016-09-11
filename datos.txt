@@ -1,0 +1,14 @@
+leche 10 13.50
+sabritas 40 9.50
+doritos 40 9.50
+tostadas 15 22.00
+yogurt 50 8.00
+refresco-600 40 8.50
+croquetas 40 17.50
+atun 20 15.00
+pan-bimbo 25 21.00
+chicles 50 1.00
+jamon 5 22.50
+queso 5 32.00
+detergente 25 15.00
+cigarros 50 48.00
