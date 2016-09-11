@@ -19,13 +19,73 @@ Nodo* editar_lista(Nodo *inicio);
 
 int main(int argc, char const *argv[]){
 	Nodo *lista=NULL;
+	int opc,elim,agreCant;
+	float agrePrec;
+	char agreProd[20];
 
 	lista = leer_lista(lista);
-	//lista_imprimir(lista);
-	editar_lista(lista);
-	//lista = guardar_lista(lista);
-	lista_borrar(lista);
+	do{
+		system("clear");
+		printf("\n\t\tBienvenido a la Prebetienda\n");
+		printf("\t1) Imprimir el inventario\n");
+		printf("\t2) Modificar algun producto\n");
+		printf("\t3) Eliminar algun producto\n");
+		printf("\t4) Agregar algun producto\n");
+		printf("\t5) Salir\n");
+		printf("Seleccione alguna opcion:  ");
+		scanf("%d",&opc);
 
+		switch(opc){
+			case 1:
+				system("clear");
+				lista_imprimir(lista);
+				getchar();
+				getchar();
+				break;
+			case 2:
+				system("clear");
+				editar_lista(lista);
+				getchar();
+				getchar();
+				break;
+			case 3:
+				system("clear");
+				lista_imprimir(lista);
+				printf("\n\nQue producto desea eliminar:  ");
+				scanf("%d",&elim);
+				lista_remover(lista,elim);
+				printf("Se elimino el productor\n");
+				getchar();
+				getchar();
+				break;
+			case 4:
+				system("clear");
+				printf("Nombre del producto a agregar(sin espacios,puede usar guiones):  ");
+				scanf("%s",agreProd);
+				printf("Precio del nuevo producto:  ");
+				scanf("%f",&agrePrec);
+				printf("Cantidad en inventario:  ");
+				scanf("%d",&agreCant);
+				lista_ingresar(lista,agreProd,agreCant,agrePrec);
+				printf("Se agrego satisfactoriamente el producto\n");
+				getchar();
+				getchar();
+				break;
+			case 5:
+				system("clear");
+				lista = guardar_lista(lista);
+				lista_borrar(lista);
+				printf("\n\n\n\n\n\t\t\tGracias por usar la Prebetienda");
+				getchar();
+				getchar();
+				system("clear");
+				break;
+			default:
+				printf("Opcion invalida\n");
+				getchar();
+				getchar();
+		}
+	}while(opc!=5);
 
 	return 0;
 }
