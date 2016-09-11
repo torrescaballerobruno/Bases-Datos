@@ -1,6 +1,7 @@
 leche 10 13.50
 sabritas 40 9.50
 doritos 40 9.50
+takis 40 9.50
 tostadas 15 22.00
 yogurt 50 8.00
 refresco-600 40 8.50
@@ -12,3 +13,8 @@ jamon 5 22.50
 queso 5 32.00
 detergente 25 15.00
 cigarros 50 48.00
+jabon 50 8.50
+shampoo 25 27.50
+agua-600 50 8.00
+mazapan 25 3.00
+maruchan 30 15.00
