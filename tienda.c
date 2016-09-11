@@ -15,17 +15,61 @@ void lista_imprimir(Nodo *inicio);
 Nodo* lista_ingresar(Nodo *inicio, char prod[20], int cant, double prec);
 Nodo* leer_lista(Nodo *inicio);
 Nodo* guardar_lista(Nodo *inicio);
-
+Nodo* editar_lista(Nodo *inicio);
 
 int main(int argc, char const *argv[]){
 	Nodo *lista=NULL;
 
 	lista = leer_lista(lista);
-	lista_imprimir(lista);
-	lista = guardar_lista(lista);
+	//lista_imprimir(lista);
+	editar_lista(lista);
+	//lista = guardar_lista(lista);
 	lista_borrar(lista);
 
+
 	return 0;
+}
+
+Nodo* editar_lista(Nodo *inicio){
+	Nodo *nodoActual = inicio;
+	int indice,opcion,nuevoCantidad, i=1;
+	float nuevoPrecio;
+
+	lista_imprimir(inicio);
+	printf("Seleccione el articulo que quiera modificar #:  ");
+	scanf("%d",&indice);
+
+	while(i<indice && nodoActual != NULL){
+		nodoActual = nodoActual->sig;
+		i++;
+	}
+	do{
+		system("clear");
+		printf("\tQue desea modificar\n\n1)    Precio\n2)    Cantidad\n3)    Salir\nSeleccione una opcion:  ");
+		scanf("%d",&opcion);
+
+		switch(opcion){
+			case 1:
+				printf("Precio anterior:\t%.2lf\n",nodoActual->precio);
+				printf("Nuevo Precio:  ");
+				scanf("%f",&nuevoPrecio);
+				nodoActual->precio=nuevoPrecio;
+				break;
+			case 2:
+				printf("Cantidad anterior:\t%d\n",nodoActual->cantidad);
+				printf("Nueva cantidad:	 ");
+				scanf("%d",&nuevoCantidad);
+				nodoActual->cantidad=nuevoCantidad;
+				break;
+			case 3:
+				break;
+			default:
+				printf("Opcion no valida\n");
+
+		}
+	}while(opcion!=3);
+
+	return inicio;
 }
 
 Nodo* guardar_lista(Nodo *inicio){
@@ -87,6 +131,7 @@ Nodo* lista_ingresar(Nodo *inicio, char prod[20], int cant, double prec){
 void lista_imprimir(Nodo *inicio){
 	Nodo *nodoActual = inicio;
 	int i =0;
+	system("clear");
 	printf("    Producto  |  Cantidad |  Precio\n");
 	printf("------------------------------------\n");
 	while(nodoActual != NULL){
