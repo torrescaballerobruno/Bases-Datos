@@ -16,14 +16,27 @@ Nodo* lista_ingresar(Nodo *inicio, char prod[20], int cant, double prec);
 Nodo* leer_lista(Nodo *inicio);
 Nodo* guardar_lista(Nodo *inicio);
 Nodo* editar_lista(Nodo *inicio);
+int logueo (void);
+int menu (Nodo *lista);
 
 int main(int argc, char const *argv[]){
 	Nodo *lista=NULL;
+
+
+	if (logueo()==1){
+		lista = leer_lista(lista);
+		menu(lista);
+	}else{
+		printf("Demasiados intentos...\n");
+	}
+	return 0;
+}
+
+int menu(Nodo *lista){
 	int opc,elim,agreCant;
 	float agrePrec;
 	char agreProd[20];
-
-	lista = leer_lista(lista);
+	
 	do{
 		system("clear");
 		printf("\n\t\tBienvenido a la Prebetienda\n");
@@ -86,6 +99,34 @@ int main(int argc, char const *argv[]){
 				getchar();
 		}
 	}while(opc!=5);
+
+	return 0;
+
+}
+
+int logueo (void){
+	int cont=0;
+	char usr[16], pass[16];
+
+	do{
+		system("clear");
+		printf("\n\n\t\t\tInicio de sesión:");
+		printf("\n\n\t\t\tUsuario: ");
+		scanf(" %s", usr);
+		printf("\n\t\t\tContraseña: ");
+		scanf(" %s", pass);
+
+		if (strcmp(usr,"Donaldo")==0 && strcmp(pass, "1994") == 0){
+			return 1;
+		}else if (strcmp(usr,"Bruno") == 0 && strcmp(pass, "1996") == 0){
+			return 1;
+		}else {
+				printf("\n\n\t\tAcceso denegado");
+				getchar();
+				getchar();
+		}
+		cont++;
+	}while(cont <4);
 
 	return 0;
 }
